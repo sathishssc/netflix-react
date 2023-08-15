@@ -1,0 +1,80 @@
+#nav_myvideos{
+    color: white;
+    padding-right: 3px;
+    text-decoration: none;
+}
+#nav_myvideos::after{
+    content: " |";
+}
+
+#myvideos_main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    border: 1px solid;
+}
+
+#myvideos_main_div{
+    background-color: black;
+    border: 3px solid;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+#myvideos_section1{
+    color: white;
+    /* border: 3px solid; */
+    width: 50vw;
+    height: 100vh;
+    margin: 20px 20px 20px 20px;
+}
+#myvideos_section2{
+
+    color: white;
+    /* border: 3px solid; */
+    width: 48vw;
+    height: 100vh;
+    margin: 20px 20px 20px 20px;
+
+}
+#videossection1{
+    padding-right: 5%;
+    width: 45%;
+    height: 30vh;
+}
+#section2Image{
+    width: 48vw;
+    height: 50vh;
+}
+#deleteVideoButton{
+    background-color: red;
+    margin-top: 50px;
+    margin-left: 20px;
+    width: 100px;
+    height: 30px;  
+    border-radius: 50px;
+}
+
+#noVideosAvailable{
+    margin-top: 40vh;
+    margin-left: 40vw;
+    color: white;
+    font-size: larger;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#updateSave{
+  float: right;
+  margin-right: 20px;
+  background-color: greenyellow;
+  margin-top: 50px;
+  width: 100px;
+  height: 30px;  
+  border-radius: 50px;
+}
+#updateButtonDiv{
+    width: 48vw;
+}

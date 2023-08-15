@@ -1,0 +1,132 @@
+/* Login.css */
+
+:root{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 100vh;
+    background-color: blue;
+}
+
+.image-container{
+    width: 60%; 
+    background-image: url("../images/login.png");
+    background-size: cover; 
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    background-color: rgb(45, 44, 44);
+    opacity:95%;
+}
+
+.sign-in-container{
+    width: 40%; 
+    background-color: rgba(17, 15, 37, 0.973); 
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    justify-content: center; /* Center content vertically */
+
+}
+
+.head {
+    margin-top : 180px;
+    margin-bottom: 0rem;
+    font-size: 5rem;
+    color: pink;
+}
+
+.head2 {
+    font-size: 3.5rem;
+    color: pink;
+    font-weight: 400;
+    margin-bottom: 80px;
+}
+
+.sign-in-title-1 {
+    margin-bottom: 0.1rem;
+    margin-left: 20%;
+    font-size: 3rem;
+    font-weight: 600;
+    color: whitesmoke;
+}
+
+.sign-in-title-2 {
+    margin-left: 8%;
+    font-size: 1rem;
+    color: whitesmoke;
+    margin-bottom: 2rem;
+}
+
+.register-link {
+    position: absolute;
+    bottom: 40px;
+    font-size: 1.3rem;
+    color: pink;
+    font-weight: 400;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.register-link:hover {
+    background-color: #0056b3;
+    color:blue;
+}
+
+
+
+/* Style the form inputs and button */
+
+#form-section{
+    margin-left: 100px;
+}
+
+#form-section input,
+#form-section button {
+    width: 75%;
+    padding: 10px;
+    margin-bottom: 2rem;
+    border:0;
+    outline: 0;
+    border-bottom: 1px solid white;
+    background-color:rgb(4, 4, 49) ;
+    /* margin-left: 40px; */
+}
+
+#form-section input{
+    width: 75%;
+    padding: 10px;
+    border:0;
+    outline: 0;
+    background-color: transparent;
+    border-bottom: 1px solid white;
+    color:white; 
+}
+
+#form-section input:hover{
+    background-color: rgb(4, 4, 49);
+    color:white;
+}
+
+
+#form-section button {
+    width:50%;
+    background-color: #8975a0;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-left: 60px;
+    border-radius: 10em;
+}
+
+#form-section button:hover {
+    background-color: #0056b3;
+}
+

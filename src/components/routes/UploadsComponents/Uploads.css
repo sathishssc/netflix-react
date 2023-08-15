@@ -1,0 +1,98 @@
+#uploads{
+border: 1px solid;
+border-radius: 10px;
+width: 50vw;
+height: 75vh;
+background-color: black;
+}
+
+.upload_main1{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+
+#cancel_image{
+    background-color: white;
+    float: right;
+}
+
+#file{
+display: none;
+}
+
+#upload_form{
+    display: flex;
+    width: 80%;
+    height: 20%;
+    border: 1px solid;
+    border-radius: 10px;
+    background-color: lightslategray;
+    justify-content: center;
+    align-items: center;
+}
+
+#form_div{
+    display: flex;
+    justify-content: center;
+}
+#uploads_heading1, #uploads_heading2 ,#uploads_heading3{
+    color: white;
+}
+#uploads_heading1{
+    margin-left: 20px;
+}
+
+#uploads_heading3{
+    border-bottom: 50px;
+    padding-left: 30px;
+}
+#cloud_image{
+    margin-left: 30px;
+    width: 100px;
+    height: 50px;
+}
+
+#namelabel, #descriptionlabel{
+    margin-left: 20px;
+    color: white;
+}
+ #name, #description{
+    color: white;
+    background-color: black;
+    width: 98%;
+    height: 10%;
+    margin-bottom: 20px;
+ }
+ 
+#otherlabel, #visibilitylabel, #categorylabel{
+    color: white;
+
+}
+#category, #visibility, #other{
+    margin-right: 3vw;
+}
+#categorylabel{
+    margin-left: 20px;
+}
+
+ #labelsection{
+    display: flex;
+    flex-wrap: wrap;
+
+ }
+ #buttondiv{
+    width: 98%;
+    display: flex;
+    justify-content: center;
+ }
+ #buttonsubmit{
+  background-color: greenyellow;
+  margin-top: 15px;
+  width: 100px;
+  height: 30px;  
+  border-radius: 50px;
+ }

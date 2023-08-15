@@ -1,0 +1,133 @@
+#godzilla{
+width: 100vw;
+height: 70vh;
+}
+
+#Home_Header{
+    background-color:black;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 15vh;
+}
+
+#tuner{
+   color: white;
+   width: 30dvw; 
+}
+#search{
+    border-radius: 10px;
+    width: 30vw;
+}
+#nav{
+    width: 30vw;
+}
+
+#nav_div{
+    float: right;
+}
+
+#nav_login{
+    margin-right: 3px;
+    color: white;
+    text-decoration: none;
+}
+#nav_login::after{
+    content: " |";
+}
+#nav_register{
+    color: white;
+    text-decoration: none;
+}
+
+#publicVideoDiv{
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+#imageDivHome{
+
+}
+
+#imageName{
+    color: red;
+    position:relative;
+    bottom: 300px;
+    padding-left: 30px;
+}
+#userNameImage{
+    display: flex;
+    color:wheat;
+    position: relative;
+    bottom: 280px;
+    padding-left: 30px;
+}
+#viewCountImage{
+    color:yellow;
+    position: relative;
+    bottom: 330px;
+    padding-left: 30px;
+}
+#imageStructore{
+    margin-right: 10px;
+    position: relative;
+    bottom: 7px;
+    border: 1px solid;
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    background-color: black;
+}
+#imageMainDiv{
+    background-color: black;
+    height: 70vh;
+}
+#imageHome{
+    margin-left: 20px;
+    width: 20vW;
+    height: 20vh;
+}
+#videoName{
+    color: white;
+    position:relative;
+    bottom: 50px;
+    left: 30px;
+}
+#videoUserName{
+    color: white;
+    position: relative;
+    bottom: 55px;
+    left: 15vw;
+}
+#videoCount{
+    color: white;
+    position:relative;
+    bottom: 71px;
+    left: 30px;
+    font-size: 10px;
+}
+#videoPlay{
+    width: 100vw;
+}
+#cancelButton{
+    position: relative;
+    left: 40vw;
+    background-color: red;
+}
+
+#viewMoreButton{
+    float: right;
+    margin-right: 30px;
+}
+#imageDivHome{
+    margin-top: 30px;
+}
+#videoPlayDiv{
+    width: 100vw;
+    height: 100vh;
+}
