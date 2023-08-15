@@ -20,6 +20,7 @@ let [section1, setSection1] = useState([]);
 let [section2, setSection2] = useState("");
 
 
+
 useEffect(() => {
   const jwtToken = localStorage.getItem("jwtToken");
   const fetchOptions = {
@@ -47,6 +48,9 @@ useEffect(() => {
 
 
 function handleDelete(id){
+  const confirmed = window.confirm("Are you sure you want to delete this video?");
+
+  if (confirmed){
   const jwtToken = localStorage.getItem("jwtToken");
   console.log(id+"sss");
   fetch("https://netflix-clone-backend-4v3y.onrender.com/deleteVideo", {
@@ -65,7 +69,7 @@ function handleDelete(id){
     console.log("Error:", err);
   });
 
-}
+}}
 
 //sign out implimentation
   function handleSignOut() {
@@ -141,18 +145,12 @@ function handleDelete(id){
             </video>
           ))}
         </section>
+
         <section id='myvideos_section2'>
           {section2 && (
             <>
               <img id='section2Image' src={`https://netflix-clone-backend-4v3y.onrender.com/uploads/${section2.thumbnailPath}`} alt='thumbnail not available'></img>
-              {/* <br></br>
-              {"Movie Name: " + section2.name}
-              <br></br>
-              {"Description: " + section2.description}
-              <br></br>
-              {section2.category}
-              <br></br>
-              {section2.visibility} */}
+              
              <form onSubmit={handleUpdatesave}>
              <label id='namelabel' htmlFor='name'>Name</label>
              <input type='text' id='name' value={section2.name} onChange={handleFormUpdate}></input>

@@ -43,6 +43,7 @@ export default function Register() {
             }
             ).then(res=>{
                 console.log(res)
+                window.location.href = "/login";
             })
             .catch(error=>{
                 console.log(error);

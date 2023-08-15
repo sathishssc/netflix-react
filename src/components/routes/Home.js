@@ -2,10 +2,11 @@
 // src/components/routes/Home.js
 
 import { Link } from "react-router-dom";
-import godzilla from "../images/godzilla.jpg"
+// import godzilla from "../images/godzilla.jpg"
 import "./Home.css"
 import { useEffect, useRef, useState } from "react";
 import VideoPlay from "./VideoPlay";
+import Loading from "./loading/Loading";
 // import Searchbar from "./Search_Video/Searchbar";
 // import VideoPlayer from "./Search_Video/VideoPlayer";
 
@@ -13,19 +14,20 @@ export default function Home(){
     let [flag, setFlag] = useState(false);
     let [publicVides, setPublicVideos] = useState([]);
     let [searchData ,setSearchData] = useState('');
-    let [userData, setUserData] = useState('');
+    // let [userData, setUserData] = useState('');
     const [selectedVideoIndex, setSelectedVideoIndex] = useState(-1);
     const [viewMoreFlag, setViewMoreFlag] = useState(true)
-    let [numVideosToShow, setNumVideosToShow] = useState(1);
+    let [numVideosToShow, setNumVideosToShow] = useState(4);
+    let [loadingFlag, setLoadingFlag] = useState(true);
+
     const handleViewMore = () => {
       setViewMoreFlag(false)
       setNumVideosToShow(publicVides.length);
     };
   
-    // Modify the "View Less" button click handler
     const handleViewLess = () => {
       setViewMoreFlag(true)
-      setNumVideosToShow(1);
+      setNumVideosToShow(4);
     };
     const handleImageClick = (index) => {
         setSelectedVideoIndex(index);
@@ -57,9 +59,11 @@ export default function Home(){
             .then(response => response.json())
             .then(data => {
               setPublicVideos(data.data);
+              setLoadingFlag(false)
             })
             .catch(error => {
               console.error("Error fetching data:", error);
+              setLoadingFlag(false)
             });
         }, 1000);
       
@@ -102,7 +106,8 @@ export default function Home(){
       const viewCount = publicVides.length > 0 ? publicVides[0].viewCount : ''
 
     return (
-        <div>
+
+      <div>{loadingFlag ?(<Loading></Loading>):( <div>
 
         <header id="Home_Header">
         <h3 id="tuner">Tuner</h3>
@@ -176,7 +181,8 @@ export default function Home(){
         </footer>
         
 
-       </div>
+       </div>)}</div>
+       
 
     )
  
