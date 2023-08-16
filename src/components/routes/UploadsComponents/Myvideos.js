@@ -47,29 +47,35 @@ useEffect(() => {
       }
 
 
-function handleDelete(id){
-  const confirmed = window.confirm("Are you sure you want to delete this video?");
-
-  if (confirmed){
-  const jwtToken = localStorage.getItem("jwtToken");
-  console.log(id+"sss");
-  fetch("https://netflix-clone-backend-4v3y.onrender.com/deleteVideo", {
-    method: "POST",
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${jwtToken}`
-    },
-    body: JSON.stringify({ id })
-  })
-  .then(res => res.json())
-  .then(data => console.log("post created ", data),setTimeout(() => {
-    window.location.href = "/Myvideos";
-  }, 2000))
-  .catch(err => {
-    console.log("Error:", err);
-  });
-
-}}
+      async function handleDelete(id) {
+        const confirmed = window.confirm("Are you sure you want to delete this video?");
+      
+        if (confirmed) {
+          const jwtToken = localStorage.getItem("jwtToken");
+          console.log(id + "sss");
+          
+          try {
+            const response = await fetch("https://netflix-clone-backend-4v3y.onrender.com/deleteVideo", {
+              method: "POST",
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${jwtToken}`
+              },
+              body: JSON.stringify({ id })
+            });
+      
+            if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+      
+            const data = await response.json();
+            console.log("post created ", data);
+            window.location.href = "/Myvideos";
+          } catch (error) {
+            console.log("Error:", error);
+          }
+        }
+      }
 
 //sign out implimentation
   function handleSignOut() {
@@ -86,27 +92,30 @@ function handleDelete(id){
     }));
   };
 
-  function handleUpdatesave(e){
+  async function handleUpdatesave(e) {
     e.preventDefault();
     const jwtToken = localStorage.getItem("jwtToken");
-    fetch("https://netflix-clone-backend-4v3y.onrender.com/update", {
-      method: "PUT",
-      headers: {
-        Authorization: `Bearer ${jwtToken}`,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(section2),
-    })
-    .then(res => res.json())
-    .then(data => console.log("post created ", data),
-    setTimeout(() => {
-      window.location.href = "/Myvideos";
-    }, 1000))
     
-    .catch(err => {
-      console.log("Error:", err);
-    });
-
+    try {
+      const response = await fetch("https://netflix-clone-backend-4v3y.onrender.com/update", {
+        method: "PUT",
+        headers: {
+          Authorization: `Bearer ${jwtToken}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(section2),
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+  
+      const data = await response.json();
+      console.log("post created ", data);
+      window.location.href = "/Myvideos";
+    } catch (error) {
+      console.log("Error:", error);
+    }
   }
 
 

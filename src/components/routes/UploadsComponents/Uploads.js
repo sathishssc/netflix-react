@@ -16,7 +16,7 @@ const Uploads = ({ isOpen, onClose }) => {
     other: 'other',
     file: null
   });
-
+  const [uploading, setUploading] = useState(false);
   const handleFormChange = (event) => {
     const { id, value } = event.target;
     setFormData((prevData) => ({
@@ -44,22 +44,33 @@ const Uploads = ({ isOpen, onClose }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const jwtToken = localStorage.getItem("jwtToken");
-    fetch("https://netflix-clone-backend-4v3y.onrender.com/upload", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${jwtToken}`,
-      },
-      body: formDataToSend
-    })
-    .then(res => res.json())
-    .then(data => console.log("post created ", data),setTimeout(() => {
-      window.location.href = "/Myvideos";
-    }, 5000))
-    .catch(err => {
-      console.log("Error:", err);
-    });
-
+  
+    try {
+      setUploading(true);
+      const response = await fetch("https://netflix-clone-backend-4v3y.onrender.com/upload", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${jwtToken}`,
+        },
+        body: formDataToSend
+      });
+  
+      if (response.ok) {
+        const data = await response.json();
+        console.log("post created ", data);
+  
+        window.location.href = "/Myvideos";
+        
+      } else {
+        console.log("Error:", response.statusText);
+      }
+    } catch (error) {
+      console.log("Error:", error);
+    }finally {
+      setUploading(false);
+    }
   }
+  
 
   if (!isOpen) return null;
 
@@ -109,7 +120,9 @@ const Uploads = ({ isOpen, onClose }) => {
              
           </section>
 
-        <div id='buttondiv'><button id='buttonsubmit' type='submit'>Save</button></div>
+        <div id='buttondiv'><button id='buttonsubmit' type='submit' disabled={uploading}>
+              {uploading ? "Uploading..." : "Save"}
+            </button></div>
         
            
         </form>
